@@ -3,37 +3,53 @@
 
 int main() {
     try {
-        std::cout << "=== Тестирование класса Matrix ===\n\n";
+        std::cout << "=== Testing Matrix Class ===\n\n";
         
         Matrix A;
         Matrix B;
         
-        // Ввод матриц через оператор >>
-        std::cout << "Введите матрицу A (формат: строки столбцы элементы):\n";
+        std::cout << "Enter matrix A (format: rows columns elements):\n";
         std::cin >> A;
         
-        std::cout << "Введите матрицу B (формат: строки столбцы элементы):\n";
+        std::cout << "Enter matrix B (format: rows columns elements):\n";
         std::cin >> B;
         
-        // Вывод исходных матриц
-        std::cout << "\nМатрица A:\n" << A << "\n\n";
-        std::cout << "Матрица B:\n" << B << "\n\n";
+        std::cout << "\nMatrix A:\n" << A << "\n\n";
+        std::cout << "Matrix B:\n" << B << "\n\n";
         
-        // Тест оператора +=
+        // Test new operators with assignment
+        std::cout << "=== Testing New Operators (with assignment) ===\n";
+        
         Matrix C = A;
         C += B;
         std::cout << "A += B:\n" << C << "\n\n";
         
-        // Тест оператора -=
         C -= B;
-        std::cout << "Результат после C -= B (должен быть равен A):\n" << C << "\n\n";
+        std::cout << "After C -= B (should equal A):\n" << C << "\n\n";
         
-        // Тест оператора *=
         C *= 2.5;
-        std::cout << "C *= 2.5:\n" << C << "\n";
+        std::cout << "C *= 2.5:\n" << C << "\n\n";
+        
+        // Test previously implemented operators
+        std::cout << "=== Testing Previously Implemented Operators ===\n";
+        
+        Matrix D = A + B;
+        std::cout << "A + B:\n" << D << "\n\n";
+        
+        Matrix E = A - B;
+        std::cout << "A - B:\n" << E << "\n\n";
+        
+        Matrix F = A * B;
+        std::cout << "A * B (matrix multiplication):\n" << F << "\n\n";
+        
+        Matrix G = A * 2.0;
+        std::cout << "A * 2.0:\n" << G << "\n\n";
+        
+        Matrix H = 3.0 * B;
+        std::cout << "3.0 * B:\n" << H << "\n";
         
     } catch (const std::exception& e) {
-        std::cerr << "\nОшибка: " << e.what() << std::endl;
+        std::cerr << "Error: " << e.what() << std::endl;
         return 1;
     }
     return 0;
